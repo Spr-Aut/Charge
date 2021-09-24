@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:padding="10dp"
+    android:background="@color/white">
+    //左侧图标
+    <ImageView
+        android:id="@+id/item_mainlv_iv"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:src="@mipmap/ic_yanjiu_fs"
+        />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/item_mainlv_iv"
+        android:layout_marginLeft="10dp"
+        android:orientation="vertical">
+        //名字
+        <TextView
+            android:id="@+id/item_mainlv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="饮料"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            />
+        <TextView
+            android:id="@+id/item_mainlv_remark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="无备注"
+            android:textSize="12sp"
+            android:layout_marginTop="5dp"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:orientation="vertical">
+        //名字
+        <TextView
+            android:id="@+id/item_mainlv_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:text="5.00"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            />
+        <TextView
+            android:id="@+id/item_mainlv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2021/09/24 17:45"
+            android:textSize="12sp"
+            android:layout_marginTop="5dp"
+            />
+    </LinearLayout>
+
+
+</RelativeLayout>
