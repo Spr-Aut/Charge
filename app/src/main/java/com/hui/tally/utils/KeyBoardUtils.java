@@ -43,10 +43,9 @@ public class KeyBoardUtils {
         public void onRelease(int i) {
         }
         @Override
-        public void onKey(int i, int[] ints) {
+        public void onKey(int primaryCode, int[] KeyCodes) {
             Editable editable=editText.getText();
             int start=editText.getSelectionStart();
-            int primaryCode = 0;
             switch (primaryCode){
                 case Keyboard.KEYCODE_DELETE:
                     if(editable!=null&&editable.length()>0){
@@ -67,7 +66,7 @@ public class KeyBoardUtils {
             }
         }
         @Override
-        public void onText(CharSequence charSequence) {
+        public void onText(CharSequence text) {
         }
         @Override
         public void swipeLeft() {
