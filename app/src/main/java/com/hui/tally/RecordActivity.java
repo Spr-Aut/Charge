@@ -14,6 +14,8 @@ import com.hui.tally.frag_record.OutcomeFragment;
 import java.util.ArrayList;
 import java.util.List;
 
+import adapter.RecordPagerAdapter;
+
 public class RecordActivity extends AppCompatActivity {
     TabLayout tabLayout;
     ViewPager viewPager;
@@ -39,7 +41,11 @@ public class RecordActivity extends AppCompatActivity {
         fragmentList.add(inFrag);
 
         //创建适配器
+        RecordPagerAdapter pagerAdapter=new RecordPagerAdapter(getSupportFragmentManager(),fragmentList);
         //设置适配器
+        viewPager.setAdapter(pagerAdapter);
+        //将TabLayout和ViewPager进行关联
+        tabLayout.setupWithViewPager(viewPager);
     }
 
     public void onCLick(View view) {
