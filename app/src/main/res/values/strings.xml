@@ -17,8 +17,40 @@
     <string name="please_search_info">请输入搜索信息</string>
     <string name="date_empty">数据为空，无此类记录~~</string>
     <string name="chart_info">账单详情</string>
-    <string name="history_info">本月账单记录</string>
+    <string name="history_info">单月账单记录</string>
     <string name="clear_all">清空所有记录</string>
+
+    <string name="about">应用信息</string>
+    <string name="about_appinfo">应用信息</string>
+    <string name="about_version">版本</string>
+    <string name="about_1">v0.9</string>
+    <string name="about_app">关于应用</string>
+    <string name="about_balabala">此应用目前并非最终版本，敬请期待后续更新</string>
+    <string name="about_developer">开发者</string>
+    <string name="about_me">关于我</string>
+    <string name="about_loc">FanJie</string>
+    <string name="about_email">邮箱</string>
+    <string name="about_email2">1493706520@qq.com</string>
+    <string name="about_code">源代码</string>
+    <string name="about_codeinfo">我</string>
+    <string name="about_B">B站地址</string>
+    <string name="about_B2">我的</string>
+
+
+    <string name="update_log">更新日志</string>
+    <string name="v0.9_log">v0.9  将历史账单移到顶部 加入APP信息</string>
+    <string name="v0.8.5_log">v0.8.5  完成历史账单显示</string>
+    <string name="v0.8_log">v0.8  添加了账本头部局，但还未连接数据</string>
+    <string name="v0.7_log">v0.7  基础功能已实现 解决了账本无法写入数据的问题</string>
+    <string name="v0.6.5_log">v0.65  解决了cursor.getColumnIndex报错的问题</string>
+    <string name="v0.6_log">v0.6  选择时间对话框 隐藏DatePicke头部</string>
+    <string name="v0.5.5_log">v0.5.5  实现了按键震动 完成了备注对话框</string>
+    <string name="v0.5_log">v0.5  尝试添加按键震动但失败，getSystemSevice报错</string>
+    <string name="v0.4_log">v0.4  收支输入界面完成</string>
+    <string name="v0.3_log">v0.3  软键盘弹出成功（重写了OutcomFragment.java）</string>
+    <string name="v0.2.5_log">v0.2.5  无法弹出自定义软键盘</string>
+    <string name="v0.2_log">v0.2  收支录入界面完成</string>
+    <string name="v0.1_log">v0.1  基本实现主界面布局</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

@@ -3,8 +3,10 @@ package com.hui.tally;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.Service;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -13,6 +15,7 @@ import android.os.Vibrator;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -59,10 +62,54 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         todayLv = findViewById((R.id.main_lv));
         editBtn = findViewById(R.id.main_btn_edit);
         moreBtn=findViewById(R.id.main_btn_more);
-        searchIV=findViewById(R.id.main_iv_search);
+        searchIV=findViewById(R.id.main_iv_info);
         editBtn.setOnClickListener(this);
         moreBtn.setOnClickListener(this);
         searchIV.setOnClickListener(this);
+        setLVLongClickListener();
+    }
+
+    //设置ListView的长按事件
+    private void setLVLongClickListener() {
+        todayLv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                if (position == 0) {  //点击了头布局
+                    return false;
+                }
+                int pos = position-1;
+                AccountBean clickBean = mDatas.get(pos);  //获取正在被点击的这条信息
+
+                //弹出提示用户是否删除的对话框
+                showDeleteItemDialog(clickBean);
+                Vibrator vibrator=(Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                vibrator.vibrate(VibrationEffect.createPredefined(VibrationEffect.EFFECT_TICK));
+                return false;
+            }
+        });
+    }
+
+    /* 弹出是否删除某一条记录的对话框*/
+    private void showDeleteItemDialog(final  AccountBean clickBean) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("提示信息").setMessage("您确定要删除这条记录么？")
+                .setNegativeButton("取消",null)
+                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @RequiresApi(api = Build.VERSION_CODES.O)
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        int click_id = clickBean.getId();
+                        //执行删除的操作
+                        Vibrator vibrator=(Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
+                        vibrator.vibrate(VibrationEffect.createPredefined(VibrationEffect.EFFECT_TICK));
+                        DBManager.deleteItemFromAccounttbById(click_id);
+                        mDatas.remove(clickBean);   //实时刷新，移除集合当中的对象
+                        adapter.notifyDataSetChanged();   //提示适配器更新数据
+                        setTopTvShow();   //改变头布局TextView显示的内容
+                    }
+                });
+        builder.create().show();   //显示对话框
     }
 
     //给ListView添加头布局
@@ -133,8 +180,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.main_iv_search:
-
+            case R.id.main_iv_info:
+                Intent it3 = new Intent(this,AboutActivity.class);
+                startActivity(it3);
                 break;
             case R.id.main_btn_edit:
                 Intent it1 = new Intent(this, RecordActivity.class);
