@@ -3,7 +3,7 @@
     <string name="editone">记</string>
     <string name="month_out">本月支出</string>
     <string name="month_in">本月收入</string>
-    <string name="budget">预算剩余</string>
+    <string name="budget">本月剩余</string>
     <string name="zero">¥ 0.00</string>
     <string name="excel">查看图表分析</string>
     <string name="add_remark">添加备注</string>

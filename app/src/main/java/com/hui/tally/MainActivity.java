@@ -1,9 +1,17 @@
 package com.hui.tally;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Service;
+import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -86,6 +94,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onResume() {
         super.onResume();
         loadDBData();
+        setTopTvShow();
+    }
+    //设置头布局中文本内容的显示
+    private void setTopTvShow() {
+        //获取今日支出和收入总金额，显示在view当中
+        float incomeOneDay = DBManager.getSumMoneyOneDay(year, month, day, 1);
+        float outcomeOneDay = DBManager.getSumMoneyOneDay(year, month, day, 0);
+        String infoOneDay = "今日支出 ￥"+outcomeOneDay+"  收入 ￥"+incomeOneDay;
+        topConTv.setText(infoOneDay);
+//        获取本月收入和支出总金额
+        float incomeOneMonth = DBManager.getSumMoneyOneMonth(year, month, 1);
+        float outcomeOneMonth = DBManager.getSumMoneyOneMonth(year, month, 0);
+        float remainMonth=incomeOneMonth-outcomeOneMonth;
+        topInTv.setText("￥"+incomeOneMonth);
+        topOutTv.setText("￥"+outcomeOneMonth);//这里改成remainMonth就能显示结余
+        topbudgetTv.setText("¥"+remainMonth);
     }
 
     private void loadDBData() {
@@ -95,6 +119,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         adapter.notifyDataSetChanged();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -112,10 +137,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 break;
             case R.id.item_mainlv_top_iv_hide:
+                //切换TextView明文和密文
+                toggeShow();
                 break;
         }
         if (v==headerView) {
             //头布局被点击了
+
+        }
+        Vibrator vibrator=(Vibrator)getSystemService(Service.VIBRATOR_SERVICE);
+        vibrator.vibrate(VibrationEffect.createPredefined(VibrationEffect.EFFECT_TICK));
+    }
+    boolean isShow=true;
+    //切换TextView明文和密文
+    private void toggeShow() {
+        if(isShow){
+            PasswordTransformationMethod passwordMethod=PasswordTransformationMethod.getInstance();
+            topInTv.setTransformationMethod(passwordMethod);
+            topOutTv.setTransformationMethod(passwordMethod);
+            topbudgetTv.setTransformationMethod(passwordMethod);
+            topShowIv.setImageResource(R.mipmap.ih_hide);
+            isShow=false;
+        }else {
+            HideReturnsTransformationMethod hideMethod = HideReturnsTransformationMethod.getInstance();
+            topInTv.setTransformationMethod(hideMethod);
+            topOutTv.setTransformationMethod(hideMethod);
+            topbudgetTv.setTransformationMethod(hideMethod);
+            topShowIv.setImageResource(R.mipmap.ih_show);
+            isShow = true;
         }
     }
 }
