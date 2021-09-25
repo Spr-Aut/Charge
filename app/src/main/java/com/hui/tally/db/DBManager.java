@@ -81,6 +81,31 @@ public class DBManager {
         }
         return list;
     }
+
+    /*
+     * 获取记账表中当年的所有支出或者收入情况
+     * */
+    public static List<AccountBean>getAccountListAllFromAccounttb(int year,int month){
+        List<AccountBean>list = new ArrayList<>();
+        String sql = "select * from accounttb where year=? and month=? order by id desc";
+        Cursor cursor = db.rawQuery(sql, new String[]{year + "",month + ""});
+        //遍历符合要求的每一行数据
+        while (cursor.moveToNext()) {
+            int id = cursor.getInt(cursor.getColumnIndex("id"));
+            String typename = cursor.getString(cursor.getColumnIndex("typename"));
+            String remark = cursor.getString(cursor.getColumnIndex("remark"));
+            String time = cursor.getString(cursor.getColumnIndex("time"));
+            int sImageId = cursor.getInt(cursor.getColumnIndex("sImageId"));
+            int kind = cursor.getInt(cursor.getColumnIndex("kind"));
+            float money = cursor.getFloat(cursor.getColumnIndex("money"));
+            int day = cursor.getInt(cursor.getColumnIndex("day"));
+
+            AccountBean accountBean = new AccountBean(id, typename, sImageId, remark, money, time, year, month, day, kind);
+            list.add(accountBean);
+        }
+        return list;
+    }
+
     /*
     * 获取某一天的支出或收入的总金额 支出kind==0 收入kind==1
     * */

@@ -113,7 +113,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void loadDBData() {
-        List<AccountBean> list = DBManager.getAccountListOneDayFromAccounttb(year, month, day);
+        List<AccountBean> list = DBManager.getAccountListAllFromAccounttb(year,month);
         mDatas.clear();
         mDatas.addAll(list);
         adapter.notifyDataSetChanged();
