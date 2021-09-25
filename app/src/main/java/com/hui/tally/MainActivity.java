@@ -5,7 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.hui.tally.db.AccountBean;
 import com.hui.tally.db.DBManager;
@@ -16,25 +20,60 @@ import java.util.List;
 
 import com.hui.tally.adapter.AccountAdapter;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     ListView todayLv;//今日收支情况
+    ImageView searchIV,editBtn;
+    ImageButton moreBtn;
     //声明数据源
     List<AccountBean> mDatas;
     AccountAdapter adapter;
     int year, month, day;
+    //头布局相关控件
+    View headerView;
+    TextView topOutTv,topInTv,topbudgetTv,topConTv;
+    ImageView topShowIv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initTime();
-        todayLv = findViewById((R.id.main_lv));
+        initView();
+        //添加ListView的头布局
+        addLVHeaderView();
         mDatas = new ArrayList<>();
         //设置适配器加载每一行数据到列表当中
         adapter = new AccountAdapter(this, mDatas);
         todayLv.setAdapter(adapter);
     }
+    //初始化自带View的方法
+    private void initView() {
+        todayLv = findViewById((R.id.main_lv));
+        editBtn = findViewById(R.id.main_btn_edit);
+        moreBtn=findViewById(R.id.main_btn_more);
+        searchIV=findViewById(R.id.main_iv_search);
+        editBtn.setOnClickListener(this);
+        moreBtn.setOnClickListener(this);
+        searchIV.setOnClickListener(this);
+    }
 
+    //给ListView添加头布局
+    private void addLVHeaderView() {
+        //将布局转换成View对象
+        headerView=getLayoutInflater().inflate(R.layout.item_mainlv_top,null);
+        todayLv.addHeaderView(headerView);
+        //查找头布局可用控件
+        topOutTv = headerView.findViewById(R.id.item_mainlv_top_tv_out);
+        topInTv = headerView.findViewById(R.id.item_mainlv_top_tv_in);
+        topbudgetTv = headerView.findViewById(R.id.item_mainlv_top_tv_budget);
+        topConTv = headerView.findViewById(R.id.item_mainlv_top_tv_day);
+        topShowIv = headerView.findViewById(R.id.item_mainlv_top_iv_hide);
+
+        topbudgetTv.setOnClickListener(this);
+        headerView.setOnClickListener(this);
+        topShowIv.setOnClickListener(this);
+    }
+    //获取今日的具体时间
     private void initTime() {
         Calendar calendar = Calendar.getInstance();
         year = calendar.get(Calendar.YEAR);
@@ -55,19 +94,29 @@ public class MainActivity extends AppCompatActivity {
         mDatas.addAll(list);
         adapter.notifyDataSetChanged();
     }
-    public void onCLick(View v) {
+
+    @Override
+    public void onClick(View v) {
         switch (v.getId()) {
             case R.id.main_iv_search:
+
                 break;
             case R.id.main_btn_edit:
                 Intent it1 = new Intent(this, RecordActivity.class);
                 startActivity(it1);
                 break;
             case R.id.main_btn_more:
+
+                break;
+            case R.id.item_mainlv_top_tv_budget:
+
+                break;
+            case R.id.item_mainlv_top_iv_hide:
                 break;
         }
+        if (v==headerView) {
+            //头布局被点击了
+        }
     }
-
-
 }
 
