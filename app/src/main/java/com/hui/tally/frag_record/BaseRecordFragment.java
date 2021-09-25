@@ -1,7 +1,9 @@
 package com.hui.tally.frag_record;
 
+import android.content.Context;
 import android.inputmethodservice.KeyboardView;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,7 +19,6 @@ import androidx.fragment.app.Fragment;
 
 import com.hui.tally.R;
 import com.hui.tally.db.AccountBean;
-import com.hui.tally.db.DBManager;
 import com.hui.tally.db.TypeBean;
 import com.hui.tally.utils.KeyBoardUtils;
 
@@ -27,7 +28,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-public class BaseRecordFragment extends Fragment{
+public abstract class BaseRecordFragment extends Fragment{
     KeyboardView keyboardView;
     EditText moneyEt;
     ImageView typeIv;
@@ -75,6 +76,11 @@ public class BaseRecordFragment extends Fragment{
     //GridView每一项的点击事件
     private void setGVListener() {
         typeGv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            /*private Vibrator vibrator;
+            private Context context;
+            public void Adapter(Context context, List<TypeBean>items){
+                this.context=context;
+            }*/
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 adapter.selectPos=position;
@@ -87,7 +93,12 @@ public class BaseRecordFragment extends Fragment{
                 typeIv.setImageResource(simageId);
                 accountBean.setsImageId(simageId);
 
+                //震动
+
+                /*vibrator = (Vibrator)context.getSystemService(Context.VIBRATOR_SERVICE);
+                vibrator.vibrate(30);*/
             }
+
         });
     }
 
@@ -123,10 +134,13 @@ public class BaseRecordFragment extends Fragment{
                 float money= Float.parseFloat(moneyStr);
                 accountBean.setMoney(money);
                 //获取记录的信息
-
+                saveAccountToDB();
                 //返回上一级页面
                 getActivity().finish();
             }
+
         });
     }
+    //让子类重写此方法
+    public abstract void saveAccountToDB();
 }

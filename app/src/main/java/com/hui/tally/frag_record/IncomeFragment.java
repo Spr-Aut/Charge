@@ -26,4 +26,9 @@ public class IncomeFragment extends BaseRecordFragment {
         typeTv.setText("其他");
         typeIv.setImageResource(R.mipmap.in_qt_fs);
     }
+
+    @Override
+    public void saveAccountToDB() {
+
+    }
 }
