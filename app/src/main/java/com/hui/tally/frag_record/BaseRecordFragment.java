@@ -3,6 +3,7 @@ package com.hui.tally.frag_record;
 import android.content.Context;
 import android.inputmethodservice.KeyboardView;
 import android.os.Bundle;
+import android.os.VibrationEffect;
 import android.os.Vibrator;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -22,6 +23,7 @@ import com.hui.tally.db.AccountBean;
 import com.hui.tally.db.TypeBean;
 import com.hui.tally.utils.KeyBoardUtils;
 import com.hui.tally.utils.RemarkDialog;
+import com.hui.tally.utils.SelectTimeDialog;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -99,7 +101,7 @@ public abstract class BaseRecordFragment extends Fragment implements View.OnClic
                 /*vibrator = (Vibrator)context.getSystemService(Context.VIBRATOR_SERVICE);
                 vibrator.vibrate(30);*/
                 Vibrator vibrator=(Vibrator) getContext().getSystemService(Context.VIBRATOR_SERVICE);
-                vibrator.vibrate(30);
+                vibrator.vibrate(VibrationEffect.createPredefined(VibrationEffect.EFFECT_TICK));
             }
 
         });
@@ -153,13 +155,22 @@ public abstract class BaseRecordFragment extends Fragment implements View.OnClic
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.frag_record_tv_time:
-
+            showTimeDialog();
                 break;
             case R.id.frag_record_tv_remark:
                 showRMDialog();
                 break;
         }
+        Vibrator vibrator=(Vibrator) getContext().getSystemService(Context.VIBRATOR_SERVICE);
+        vibrator.vibrate(VibrationEffect.createPredefined(VibrationEffect.EFFECT_TICK));
     }
+
+    //弹出显示时间的对话框
+    private void showTimeDialog(){
+        SelectTimeDialog dialog = new SelectTimeDialog(getContext());
+        dialog.show();
+    }
+
     //弹出备注对话框
     public void showRMDialog(){
         RemarkDialog dialog = new RemarkDialog(getContext());
