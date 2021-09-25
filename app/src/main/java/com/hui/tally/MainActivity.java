@@ -101,19 +101,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //获取今日支出和收入总金额，显示在view当中
         float incomeOneDay = DBManager.getSumMoneyOneDay(year, month, day, 1);
         float outcomeOneDay = DBManager.getSumMoneyOneDay(year, month, day, 0);
-        String infoOneDay = "今日支出 ￥"+outcomeOneDay+"  收入 ￥"+incomeOneDay;
-        topConTv.setText(infoOneDay);
 //        获取本月收入和支出总金额
         float incomeOneMonth = DBManager.getSumMoneyOneMonth(year, month, 1);
         float outcomeOneMonth = DBManager.getSumMoneyOneMonth(year, month, 0);
         float remainMonth=incomeOneMonth-outcomeOneMonth;
-        topInTv.setText("￥"+incomeOneMonth);
-        topOutTv.setText("￥"+outcomeOneMonth);//这里改成remainMonth就能显示结余
-        topbudgetTv.setText("¥"+remainMonth);
+        //获取当年收入和支出总金额
+        float incomeOneYear = DBManager.getSumMoneyOneYear(year,1);
+        float outcomeOneYear = DBManager.getSumMoneyOneYear(year,0);
+        float remainYear=incomeOneYear-outcomeOneYear;
+        //获取历史所有收入和支出总额
+        float incomeAll = DBManager.getSumMoneyAll(1);
+        float outcomeAll = DBManager.getSumMoneyAll(0);
+        float remainAll = incomeAll-outcomeAll;
+
+        String infoOneMonth = "本月支出 ￥"+outcomeOneMonth+"  收入 ￥"+incomeOneMonth;
+        topConTv.setText(infoOneMonth);
+
+        topInTv.setText("￥"+incomeAll);
+        topOutTv.setText("￥"+outcomeAll);//这里改成remainMonth就能显示结余
+        topbudgetTv.setText("¥"+remainAll);
     }
 
     private void loadDBData() {
-        List<AccountBean> list = DBManager.getAccountListAllFromAccounttb(year,month);
+        List<AccountBean> list = DBManager.getAccountListOneMonthFromAccounttb(year,month);
         mDatas.clear();
         mDatas.addAll(list);
         adapter.notifyDataSetChanged();
@@ -131,7 +141,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(it1);
                 break;
             case R.id.main_btn_more:
-
+                Intent it2 = new Intent(this,HistoryActivity.class);
+                startActivity(it2);
                 break;
             case R.id.item_mainlv_top_tv_budget:
 
