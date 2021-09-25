@@ -21,6 +21,7 @@ import com.hui.tally.R;
 import com.hui.tally.db.AccountBean;
 import com.hui.tally.db.TypeBean;
 import com.hui.tally.utils.KeyBoardUtils;
+import com.hui.tally.utils.RemarkDialog;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -28,7 +29,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-public abstract class BaseRecordFragment extends Fragment{
+public abstract class BaseRecordFragment extends Fragment implements View.OnClickListener{
     KeyboardView keyboardView;
     EditText moneyEt;
     ImageView typeIv;
@@ -97,6 +98,8 @@ public abstract class BaseRecordFragment extends Fragment{
 
                 /*vibrator = (Vibrator)context.getSystemService(Context.VIBRATOR_SERVICE);
                 vibrator.vibrate(30);*/
+                Vibrator vibrator=(Vibrator) getContext().getSystemService(Context.VIBRATOR_SERVICE);
+                vibrator.vibrate(30);
             }
 
         });
@@ -118,6 +121,8 @@ public abstract class BaseRecordFragment extends Fragment{
         typeTv=view.findViewById(R.id.frag_record_tv_type);
         remarkTv=view.findViewById(R.id.frag_record_tv_remark);
         timeTv=view.findViewById(R.id.frag_record_tv_time);
+        remarkTv.setOnClickListener(this);
+        timeTv.setOnClickListener(this);
         //显示自定义软键盘
         KeyBoardUtils boardUtils=new KeyBoardUtils(keyboardView,moneyEt);
         boardUtils.showKeyboard();
@@ -143,4 +148,33 @@ public abstract class BaseRecordFragment extends Fragment{
     }
     //让子类重写此方法
     public abstract void saveAccountToDB();
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.frag_record_tv_time:
+
+                break;
+            case R.id.frag_record_tv_remark:
+                showRMDialog();
+                break;
+        }
+    }
+    //弹出备注对话框
+    public void showRMDialog(){
+        RemarkDialog dialog = new RemarkDialog(getContext());
+        dialog.show();
+        dialog.setDialogSize();
+        dialog.setOnEnsureListener(new RemarkDialog.OnEnsureListener() {
+            @Override
+            public void onEnsure() {
+                String msg = dialog.getEditText();
+                if (!TextUtils.isEmpty(msg)) {
+                    remarkTv.setText(msg);
+                    accountBean.setRemark(msg);
+                }
+                dialog.cancel();
+            }
+        });
+    }
 }

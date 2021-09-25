@@ -22,6 +22,7 @@ public class OutcomeFragment extends BaseRecordFragment{
 
     @Override
     public void saveAccountToDB() {
-
+        accountBean.setKind(0);
+        DBManager.insertItemToAccounttb(accountBean);
     }
 }
