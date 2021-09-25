@@ -169,6 +169,17 @@ public abstract class BaseRecordFragment extends Fragment implements View.OnClic
     private void showTimeDialog(){
         SelectTimeDialog dialog = new SelectTimeDialog(getContext());
         dialog.show();
+        //设定确定按钮被点击的监听器
+        dialog.setOnEnsureListener(new SelectTimeDialog.OnEnsureListener() {
+            @Override
+            public void onEnsure(String time, int year, int month, int day) {
+                timeTv.setText(time);
+                accountBean.setTime(time);
+                accountBean.setYear(year);
+                accountBean.setMonth(month);
+                accountBean.setDay(day);
+            }
+        });
     }
 
     //弹出备注对话框

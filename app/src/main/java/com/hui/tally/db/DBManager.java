@@ -1,12 +1,17 @@
 package com.hui.tally.db;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
+
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+
 
 /*
 * 管理数据库
@@ -35,6 +40,7 @@ public class DBManager {
             int sImageId = cursor.getInt(cursor.getColumnIndex("sImageId"));
             int kind1 = cursor.getInt(cursor.getColumnIndex("kind"));
             int id = cursor.getInt(cursor.getColumnIndex("id"));
+
             TypeBean typeBean = new TypeBean(id, typename, imageId, sImageId, kind);
             list.add(typeBean);
         }
@@ -53,5 +59,6 @@ public class DBManager {
         values.put("day",bean.getDay());
         values.put("kind",bean.getKind());
         db.insert("accounttb",null,values);
+        Log.i("animee","ok!!");
     }
 }
