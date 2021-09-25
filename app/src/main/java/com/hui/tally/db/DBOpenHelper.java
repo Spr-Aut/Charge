@@ -57,7 +57,7 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 
     //数据库版本在更新时发生改变，会调用此方法
     @Override
-    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
+    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
 
     }
 }

@@ -9,13 +9,12 @@ import android.view.View;
 
 import com.google.android.material.tabs.TabLayout;
 import com.hui.tally.frag_record.IncomeFragment;
-import com.hui.tally.frag_record.BaseRecordFragment;
 import com.hui.tally.frag_record.OutcomeFragment;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import adapter.RecordPagerAdapter;
+import com.hui.tally.adapter.RecordPagerAdapter;
 
 public class RecordActivity extends AppCompatActivity {
     TabLayout tabLayout;

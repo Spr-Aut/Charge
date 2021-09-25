@@ -2,6 +2,7 @@ package com.hui.tally.frag_record;
 
 import android.content.Context;
 import android.inputmethodservice.KeyboardView;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
@@ -16,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
 import com.hui.tally.R;
@@ -38,7 +40,7 @@ public abstract class BaseRecordFragment extends Fragment implements View.OnClic
     TextView typeTv,remarkTv,timeTv;
     GridView typeGv;
     List<TypeBean>typeList;
-    public TypeBaseAdapter adapter;
+    TypeBaseAdapter adapter;
     AccountBean accountBean;//将需要插入到记账本中的数据保存成对象的形式
 
     @Override
@@ -84,6 +86,7 @@ public abstract class BaseRecordFragment extends Fragment implements View.OnClic
             public void Adapter(Context context, List<TypeBean>items){
                 this.context=context;
             }*/
+            @RequiresApi(api = Build.VERSION_CODES.Q)
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 adapter.selectPos=position;
@@ -132,9 +135,9 @@ public abstract class BaseRecordFragment extends Fragment implements View.OnClic
         boardUtils.setOnEnsureListener(new KeyBoardUtils.OnEnsureListener() {
             @Override
             public void onEnsure() {
-                //获取输入
-                String moneyStr=moneyEt.getText().toString();
-                if(!TextUtils.isEmpty(moneyStr)||moneyStr.equals("0")){
+                //获取输入钱数
+                String moneyStr = moneyEt.getText().toString();
+                if (TextUtils.isEmpty(moneyStr)||moneyStr.equals("0")) {
                     getActivity().finish();
                     return;
                 }
@@ -151,6 +154,7 @@ public abstract class BaseRecordFragment extends Fragment implements View.OnClic
     //让子类重写此方法
     public abstract void saveAccountToDB();
 
+    @RequiresApi(api = Build.VERSION_CODES.Q)
     @Override
     public void onClick(View view) {
         switch (view.getId()) {

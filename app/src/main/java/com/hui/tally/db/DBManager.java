@@ -48,7 +48,7 @@ public class DBManager {
     }
     //向记账表中插入一条元素
     public static void insertItemToAccounttb(AccountBean bean){
-        ContentValues values=new ContentValues();
+        ContentValues values = new ContentValues();
         values.put("typename",bean.getTypename());
         values.put("sImageId",bean.getsImageId());
         values.put("remark",bean.getRemark());
@@ -59,6 +59,26 @@ public class DBManager {
         values.put("day",bean.getDay());
         values.put("kind",bean.getKind());
         db.insert("accounttb",null,values);
-        Log.i("animee","ok!!");
+    }
+    /*
+    * 获取记账表中某一天的所有支出或者收入情况
+    * */
+    public static List<AccountBean>getAccountListOneDayFromAccounttb(int year,int month,int day){
+        List<AccountBean>list=new ArrayList<>();
+        String sql="select * from accounttb where year=? and month=? and day=? order by id desc";
+        Cursor cursor = db.rawQuery(sql, new String[]{year + "", month + "", day + ""});
+        //遍历符合要求的每一行数据
+        while (cursor.moveToNext()){
+            int id = cursor.getInt(cursor.getColumnIndex("id"));
+            String typename = cursor.getString(cursor.getColumnIndex("typename"));
+            String remark = cursor.getString(cursor.getColumnIndex("remark"));
+            String time = cursor.getString(cursor.getColumnIndex("time"));
+            int sImageId = cursor.getInt(cursor.getColumnIndex("sImageId"));
+            int kind = cursor.getInt(cursor.getColumnIndex("kind"));
+            float money = cursor.getFloat(cursor.getColumnIndex("money"));
+            AccountBean accountBean = new AccountBean(id, typename, sImageId, remark, money, time, year, month, day, kind);
+            list.add(accountBean);
+        }
+        return list;
     }
 }

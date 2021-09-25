@@ -1,4 +1,4 @@
-package adapter;
+package com.hui.tally.adapter;
 
 
 import androidx.annotation.NonNull;
