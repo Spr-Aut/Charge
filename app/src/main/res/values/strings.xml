@@ -25,19 +25,16 @@
     <string name="about_version">版本</string>
     <string name="about_1">v0.9</string>
     <string name="about_app">关于应用</string>
-    <string name="about_balabala">此应用目前并非最终版本，敬请期待后续更新</string>
+    <string name="about_balabala">目前并非最终版本，努力更新中\n不能保证稳定性</string>
     <string name="about_developer">开发者</string>
     <string name="about_me">关于我</string>
     <string name="about_loc">FanJie</string>
     <string name="about_email">邮箱</string>
     <string name="about_email2">1493706520@qq.com</string>
-    <string name="about_code">源代码</string>
-    <string name="about_codeinfo">我</string>
-    <string name="about_B">B站地址</string>
-    <string name="about_B2">我的</string>
 
 
     <string name="update_log">更新日志</string>
+    <string name="v0.9.1_log">v0.9.1  更换了应用图标</string>
     <string name="v0.9_log">v0.9  将历史账单移到顶部 加入APP信息</string>
     <string name="v0.8.5_log">v0.8.5  完成历史账单显示</string>
     <string name="v0.8_log">v0.8  添加了账本头部局，但还未连接数据</string>
