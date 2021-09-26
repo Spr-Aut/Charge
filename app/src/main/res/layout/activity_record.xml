@@ -8,7 +8,8 @@
     android:background="@color/grey_f3f3f3">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp">
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp">
         <ImageView
             android:id="@+id/record_iv_back"
             android:layout_width="wrap_content"
@@ -33,5 +34,6 @@
         android:id="@+id/record_vp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:paddingBottom="20dp"
         />
 </LinearLayout>

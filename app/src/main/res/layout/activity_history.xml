@@ -6,7 +6,8 @@
     android:background="@color/grey_f3f3f3">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp">
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp">
         <ImageView
             android:id="@+id/history_iv_back"
             android:layout_width="wrap_content"
