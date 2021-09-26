@@ -37,8 +37,9 @@ public class RecordActivity extends AppCompatActivity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
 
-        Vibrator vibrator=(Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-        vibrator.vibrate(VibrationEffect.createPredefined(VibrationEffect.EFFECT_TICK));
+        //加了这两行之后，进入Record页面会震动，导致主屏幕点击加号会震动两次
+        /*Vibrator vibrator=(Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+        vibrator.vibrate(VibrationEffect.createPredefined(VibrationEffect.EFFECT_TICK));*/
 
         //查找控件
         tabLayout=findViewById(R.id.record_tabs);
