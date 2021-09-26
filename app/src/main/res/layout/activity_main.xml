@@ -36,7 +36,6 @@
             android:id="@+id/main_btn_more"
             android:layout_width="35dp"
             android:layout_height="35dp"
-            android:src="@mipmap/more"
             android:layout_toLeftOf="@+id/main_iv_info"
             android:layout_marginRight="16dp"
             android:background="@mipmap/more2"

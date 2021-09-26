@@ -8,6 +8,7 @@ import android.app.Service;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.VibrationEffect;
@@ -52,6 +53,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //引导页
+        SharedPreferences appInfo=getSharedPreferences("appInfo",MODE_PRIVATE);
+        boolean isFirst=appInfo.getBoolean("isFirst",true);
+        if(isFirst){
+            SharedPreferences.Editor editor=appInfo.edit();
+            editor.putBoolean("isFirst",false);
+            editor.commit();
+
+            Intent intent=new Intent(this,GuideActivity.class);
+            startActivity(intent);
+            finish();
+        }
 
         //适配MIUI，沉浸小横条和状态栏
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);

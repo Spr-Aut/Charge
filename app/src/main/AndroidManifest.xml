@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.hui.tally">
 
-    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:name=".UniteApp"
@@ -12,9 +12,12 @@
         android:roundIcon="@mipmap/my_icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.Tally">
-        <activity android:name=".RecordActivity"></activity>
-        <activity android:name=".HistoryActivity"></activity>
-        <activity android:name=".AboutActivity"></activity>
+        <activity android:name=".GuideActivity">
+
+        </activity>
+        <activity android:name=".RecordActivity" />
+        <activity android:name=".HistoryActivity" />
+        <activity android:name=".AboutActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

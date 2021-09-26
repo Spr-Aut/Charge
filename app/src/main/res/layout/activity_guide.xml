@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/grey_f3f3f3">
+    <ImageView
+        android:id="@+id/guide_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ih_error"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="40dp"
+        />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/grey_f3f3f3">
+            <ImageView
+                android:id="@+id/guide_main"
+                android:layout_width="wrap_content"
+                android:layout_height="600dp"
+                android:src="@mipmap/guide_main"
+                />
+            <ImageView
+                android:id="@+id/guide_record"
+                android:layout_width="wrap_content"
+                android:layout_height="600dp"
+                android:src="@mipmap/guide_record"
+                android:layout_below="@+id/guide_main"
+                />
+            <ImageView
+                android:id="@+id/guide_history"
+                android:layout_width="wrap_content"
+                android:layout_height="600dp"
+                android:src="@mipmap/guide_history"
+                android:layout_below="@+id/guide_record"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_below="@+id/guide_history">
+                <Button
+                    android:id="@+id/guide_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="我知道了"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:background="@drawable/round_rectangle"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginBottom="50dp"
+                    />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+
+    </ScrollView>
+
+</LinearLayout>
