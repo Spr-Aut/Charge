@@ -32,8 +32,9 @@
     <string name="about_email2">1493706520@qq.com</string>
 
 
-    <string name="version">v0.9.5.1</string>
+    <string name="version">v0.9.5.2</string>
     <string name="update_log">更新日志</string>
+    <string name="v0.9.5.2_log">v0.9.5.2  修复了状态栏文字颜色异常的bug</string>
     <string name="v0.9.5.1_log">v0.9.5.1  修复了点击加号震动两次的bug</string>
     <string name="v0.9.5_log">v0.9.5  优化了多处UI</string>
     <string name="v0.9.4_log">v0.9.4  更改键盘样式并实现了沉浸</string>
