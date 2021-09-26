@@ -82,6 +82,8 @@ public class KeyBoardUtils {
         }
     };
 
+
+
     //显示键盘
     public void showKeyboard(){
         int visibility=keyboardView.getVisibility();

@@ -15,13 +15,16 @@ import android.os.Vibrator;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.hui.tally.db.AccountBean;
 import com.hui.tally.db.DBManager;
 
@@ -48,6 +51,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //适配MIUI，沉浸小横条和状态栏
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+
         initTime();
         initView();
         //添加ListView的头布局

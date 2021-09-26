@@ -93,6 +93,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
+                    android:text="@string/v0.9.3_log"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/v0.9.2_log"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:text="@string/v0.9.1_log"/>
                 <TextView
                     android:layout_width="wrap_content"

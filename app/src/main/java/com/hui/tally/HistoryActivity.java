@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -32,6 +33,11 @@ public class HistoryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
+
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+
         historyLv = findViewById(R.id.history_lv);
         timeTv = findViewById(R.id.history_tv_time);
         mDatas = new ArrayList<>();

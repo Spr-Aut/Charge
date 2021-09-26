@@ -8,6 +8,7 @@ import com.hui.tally.R;
 import com.hui.tally.db.AccountBean;
 import com.hui.tally.db.DBManager;
 import com.hui.tally.db.TypeBean;
+import android.view.WindowManager;
 
 import java.util.List;
 
@@ -34,6 +35,8 @@ public class OutcomeFragment extends BaseRecordFragment{
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
         accountBean=new AccountBean();//创建对象
         accountBean.setTypename("餐饮");//默认是"其他"
         accountBean.setsImageId(R.mipmap.ic_canyin_fs);

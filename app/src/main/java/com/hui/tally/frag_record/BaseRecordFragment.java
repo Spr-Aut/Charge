@@ -46,6 +46,8 @@ public abstract class BaseRecordFragment extends Fragment implements View.OnClic
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
         accountBean=new AccountBean();//创建对象
         accountBean.setTypename("其他");//默认是"其他"
         accountBean.setsImageId(R.mipmap.ic_qita_fs);

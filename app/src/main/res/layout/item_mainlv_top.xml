@@ -78,7 +78,7 @@
             android:layout_marginLeft="5dp"
             />
         //图表
-        <TextView
+        <!--<TextView
             android:id="@+id/item_mainlv_top_tv4"
             android:layout_width="wrap_content"
             android:layout_height="20dp"
@@ -89,7 +89,7 @@
             android:text="@string/excel"
             android:textSize="15sp"
             android:drawablePadding="10dp"
-            />
+            />-->
     </RelativeLayout>
     <TextView
         android:id="@+id/item_mainlv_top_tv_day"
