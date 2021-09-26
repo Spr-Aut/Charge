@@ -99,6 +99,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
     }
 
+    //设置ListView的点击事件
+    /*private void setLVClickListener(){
+        todayLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if (position==0) {
+                    return;
+                }
+                int pos=position-1;
+                AccountBean clickBean=mDatas.get(pos);
+                Vibrator vibrator=(Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                vibrator.vibrate(VibrationEffect.createPredefined(VibrationEffect.EFFECT_TICK));
+            }
+        });
+    }*/
+
     /* 弹出是否删除某一条记录的对话框*/
     private void showDeleteItemDialog(final  AccountBean clickBean) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);

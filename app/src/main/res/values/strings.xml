@@ -23,7 +23,7 @@
     <string name="about">应用信息</string>
     <string name="about_appinfo">应用信息</string>
     <string name="about_version">版本</string>
-    <string name="about_1">v0.9</string>
+    <string name="about_1">v0.9.5</string>
     <string name="about_app">关于应用</string>
     <string name="about_balabala">目前并非最终版本，努力更新中\n不能保证稳定性</string>
     <string name="about_developer">开发者</string>
@@ -34,7 +34,8 @@
 
 
     <string name="update_log">更新日志</string>
-    <string name="v0.9.4_log">v0.9.4  更改键盘样式并实现沉浸</string>
+    <string name="v0.9.5_log">v0.9.5  优化了多处UI</string>
+    <string name="v0.9.4_log">v0.9.4  更改键盘样式并实现了沉浸</string>
     <string name="v0.9.3_log">v0.9.3  适配MIUI小横条，实现沉浸</string>
     <string name="v0.9.2_log">v0.9.2  将支出的默认选项更改为“餐饮”</string>
     <string name="v0.9.1_log">v0.9.1  更换了应用图标</string>

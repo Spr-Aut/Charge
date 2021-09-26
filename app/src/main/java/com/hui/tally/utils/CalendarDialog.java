@@ -56,6 +56,7 @@ public class CalendarDialog extends Dialog implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dialog_calendar);
+
         gv = findViewById(R.id.dialog_calendar_gv);
         errorIv = findViewById(R.id.dialog_calendar_iv);
         hsvLayout = findViewById(R.id.dialog_calendar_layout);

@@ -16,7 +16,7 @@
             android:layout_height="match_parent"
             android:src="@mipmap/ih_error"
             android:onClick="onCLick"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="20dp"
             />
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/record_tabs"
@@ -34,6 +34,6 @@
         android:id="@+id/record_vp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingBottom="20dp"
+
         />
 </LinearLayout>

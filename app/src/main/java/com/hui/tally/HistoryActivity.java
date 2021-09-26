@@ -1,14 +1,19 @@
 package com.hui.tally;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.hui.tally.adapter.AccountAdapter;
@@ -91,12 +96,15 @@ public class HistoryActivity extends AppCompatActivity {
         month = calendar.get(Calendar.MONTH)+1;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.history_iv_back:
                 finish();
                 break;
             case R.id.history_iv_rili:
+                Vibrator vibrator=(Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                vibrator.vibrate(VibrationEffect.createPredefined(VibrationEffect.EFFECT_TICK));
                 CalendarDialog dialog = new CalendarDialog(this,dialogSelPos,dialogSelMonth);
                 dialog.show();
                 dialog.setDialogSize();

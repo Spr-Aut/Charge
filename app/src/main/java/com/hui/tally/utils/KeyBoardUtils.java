@@ -1,7 +1,10 @@
 package com.hui.tally.utils;
 
+import android.content.Context;
 import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.text.Editable;
 import android.text.InputType;
 import android.view.View;
@@ -48,6 +51,7 @@ public class KeyBoardUtils {
             int start=editText.getSelectionStart();
             switch (primaryCode){
                 case Keyboard.KEYCODE_DELETE:
+
                     if(editable!=null&&editable.length()>0){
                         if(start>0){
                             editable.delete(start-1,start);
@@ -80,6 +84,7 @@ public class KeyBoardUtils {
         @Override
         public void swipeUp() {
         }
+
     };
 
 

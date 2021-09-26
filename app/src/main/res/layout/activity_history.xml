@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/grey_f3f3f3">
+    android:background="@color/grey_f3f3f3"
+    android:paddingHorizontal="16dp">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -13,7 +14,6 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:src="@mipmap/it_back"
-            android:layout_marginLeft="10dp"
             android:onClick="onClick"/>
         <TextView
             android:layout_width="wrap_content"
@@ -26,7 +26,6 @@
             android:id="@+id/history_iv_rili"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginRight="10dp"
             android:src="@mipmap/it_rili"
             android:layout_alignParentRight="true"
             android:onClick="onClick"/>
@@ -34,7 +33,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp">
+        android:layout_marginTop="10dp">
         <TextView
             android:id="@+id/history_tv_time"
             android:layout_width="wrap_content"
@@ -52,7 +51,7 @@
         android:id="@+id/history_lv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="10dp"
         android:divider="@null"
-        android:dividerHeight="5dp"/>
+        android:layout_marginTop="10dp"
+        android:dividerHeight="10dp"/>
 </LinearLayout>

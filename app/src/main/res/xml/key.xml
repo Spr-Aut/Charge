@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
-    android:keyHeight="50dp"
+    android:keyHeight="70dp"
     android:keyWidth="25%p"
     >
     <Row>
@@ -13,7 +13,7 @@
         <Key android:codes="52" android:keyLabel="4"/>
         <Key android:codes="53" android:keyLabel="5"/>
         <Key android:codes="54" android:keyLabel="6"/>
-        <Key android:codes="-4" android:keyLabel="确定" android:keyHeight="150dp"/>
+        <Key android:codes="-4" android:keyLabel="确定" android:keyHeight="210dp"/>
     </Row>
     <Row>
         <Key android:codes="55" android:keyLabel="7"/>

@@ -4,13 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingHorizontal="16dp"
     android:background="@color/grey_f3f3f3">
 
     <RelativeLayout
         android:id="@+id/main_top_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
+        android:paddingVertical="10dp"
+        android:paddingHorizontal="4dp"
         android:layout_marginTop="30dp"
         >
         //显示应用名
@@ -28,7 +30,6 @@
             android:layout_width="37dp"
             android:layout_height="37dp"
             android:src="@mipmap/app_icon_48"
-            android:layout_marginLeft="10dp"
             />
         //更多
         <ImageButton
@@ -37,7 +38,7 @@
             android:layout_height="35dp"
             android:src="@mipmap/more"
             android:layout_toLeftOf="@+id/main_iv_info"
-            android:layout_marginRight="10dp"
+            android:layout_marginRight="16dp"
             android:background="@mipmap/more2"
             />
         //信息
@@ -55,11 +56,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/main_top_layout"
-        android:paddingTop="10dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
         android:divider="@null"
-        android:dividerHeight="6dp"
+        android:dividerHeight="10dp"
         android:scrollbars="none"
         android:background="@color/grey_f3f3f3"
         />
@@ -82,7 +80,8 @@
         android:layout_alignParentBottom="true"
         android:background="@drawable/main_recordbtn_bg"
         android:layout_alignParentRight="true"
-        android:layout_margin="50dp"
+        android:layout_marginBottom="50dp"
+        android:layout_marginRight="34dp"
         android:src="@mipmap/add_48"
         />
 
