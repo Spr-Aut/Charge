@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">记账</string>
+    <string name="app_name">记</string>
     <string name="editone">记</string>
     <string name="month_out">总支出</string>
     <string name="month_in">总收入</string>
@@ -34,6 +34,7 @@
 
 
     <string name="update_log">更新日志</string>
+    <string name="v0.9.2_log">v0.9.2  将支出的默认选项更改为“餐饮”</string>
     <string name="v0.9.1_log">v0.9.1  更换了应用图标</string>
     <string name="v0.9_log">v0.9  将历史账单移到顶部 加入APP信息</string>
     <string name="v0.8.5_log">v0.8.5  完成历史账单显示</string>
